@@ -1,0 +1,49 @@
+<div class="border">
+  <div>
+    <input (click)="resetKeyword()" placeholder="enter repo string for search" [(ngModel)]="keyword" (keyup)="searchKeyword()" />
+  </div>
+</div>
+<div *ngIf="result.length">
+<div *ngFor="let item of result">
+  <div class="border p20">
+    <div class="flex align-center">
+      <p>Name:</p>
+      <a href="{{item?.html_url}}">{{item?.name | titlecase}}</a>
+    </div>
+    <div class="flex align-center">
+      <p>Description:</p>
+      <p >{{item?.description}}</p>
+    </div>
+    <div class="flex align-center gap20">
+      <div class="flex align-center">
+        <p>Private:</p>
+        <strong >{{item?.private}}</strong>
+      </div>
+      <div class="flex align-center">
+        <p>Language:</p>
+        <strong >{{item?.language}}</strong>
+      </div>
+      <div class="flex align-center">
+        <p>Forks:</p>
+        <strong >{{item?.forks_count}}</strong>
+      </div>
+      <div class="flex align-center">
+<p>Stars:</p>
+        <strong >{{item?.stargazers_count}}</strong>
+      </div>
+      <div class="flex align-center">
+        <p>Watchers:</p>
+        <strong >{{item?.watchers_count}}</strong>
+      </div>
+      <div class="flex align-center">
+        <p>Created:</p>
+        <strong >{{item?.created_at | date}}</strong>
+      </div>
+      <div class="flex align-center">
+        <p>Updated:</p>
+        <strong >{{item?.updated_at | date}}</strong>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
